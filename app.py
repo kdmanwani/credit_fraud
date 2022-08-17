@@ -65,38 +65,6 @@ df['dob'] = df['dob'].where(df['dob'] < now, df['dob'] -  np.timedelta64(100, 'Y
 df['age'] = (now - df['dob']).astype('<m8[Y]')    
 
 
-#Distribution by time for fraudulant vs. non-fradualant transactions
-fig_time = px.histogram(df, x="time_hour",color="is_fraud",histnorm='probability density',
-                        marginal='box',opacity=0.5,
-                       labels={"time_hour": "Time of Transaction"})
-fig_time.update_layout(barmode='overlay')
-#fig_time.update_xaxes(title_text='Time of Transaction')
-fig_time.show()
-
-
-#Distribution by age for fraudulant vs. non-fradualant transactions
-fig_age = px.histogram(df, x="age",color="is_fraud",histnorm='probability density',
-                       marginal="box",opacity=0.5,nbins=15,labels={
-                     "age": "Age of card holder"})
-fig_age.update_layout(barmode='overlay')
-fig_age.show()
-
-
-#Distribution by distance for fraudulant vs. non-fradualant transactions
-fig_dist = px.histogram(df, x="ownerToMerdist",color="is_fraud",histnorm='probability density',marginal='box',
-                        opacity=0.5,nbins=15,
-                       labels={"ownerToMerdist": "Distance between transaction and card holder"})
-fig_dist.update_layout(barmode='overlay')
-fig_dist.show()
-
-
-#Distribution by amount for fraudulant vs. non-fradualant transactions
-fig_amt = px.histogram(df.query("amt<3000"), x="amt",color="is_fraud",histnorm='probability density',marginal="box",
-                       opacity=0.5,nbins=100,labels={"amt": "$ Amount of Transaction"}
-                      )
-fig_amt.update_layout(barmode='overlay')
-#fig_amt.update_xaxes(title_text='$ Amount of Transaction')
-fig_amt.show()
 
 markdown_text = ''' This dashboard has some visualizations for exploratory data analysis on Fraudulant credit card
 transactions '''
