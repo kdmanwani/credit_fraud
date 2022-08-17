@@ -110,36 +110,7 @@ server = app.server
 app.layout = html.Div(
     [
         html.H1("Exploring Credit Card Fraud"),
-        dcc.Markdown(children = markdown_text),
-        html.Div([
-            
-            html.H2("Distribution by Transaction Time"),
-            
-            dcc.Graph(figure=fig_time)
-            
-        ], style = {'width':'24%', 'float':'left'}),
-        
-        html.Div([
-            
-            html.H2("Distribution by Age Group"),
-            
-            dcc.Graph(figure=fig_age)
-            
-        ], style = {'width':'24%', 'float':'left'}),
-        html.Div([
-            
-            html.H2("Distribution by Transaction Distance from Card Owner"),
-            
-            dcc.Graph(figure=fig_dist)
-            
-        ], style = {'width':'24%', 'float':'right'}),
-        html.Div([
-            
-            html.H2("Distribution by Transaction Amount"),
-            
-            dcc.Graph(figure=fig_amt)
-            
-        ], style = {'width':'24%', 'float':'right'})
+        dcc.Markdown(children = markdown_text)
     ]
 )
 if __name__ == '__main__':
