@@ -108,7 +108,7 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_time)
             
-        ], style = {'width':'24%', 'float':'left'}),
+        ], style = {'width':'48%', 'float':'left'}),
         
         html.Div([
             
@@ -116,21 +116,21 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_age)
             
-        ], style = {'width':'24%', 'float':'left'}),
+        ], style = {'width':'48%', 'float':'right'}),
         html.Div([
             
-            html.H2("Distribution by Transaction Distance from Card Owner"),
+            html.H3("Distribution by Transaction Distance from Card Owner"),
             
             dcc.Graph(figure=fig_dist)
             
-        ], style = {'width':'24%', 'float':'right'}),
+        ], style = {'width':'48%', 'float':'left'}),
         html.Div([
             
-            html.H2("Distribution by Transaction Amount"),
+            html.H3("Distribution by Transaction Amount"),
             
             dcc.Graph(figure=fig_amt)
             
-        ], style = {'width':'24%', 'float':'right'})
+        ], style = {'width':'48%', 'float':'right'})
     ]
 )
 if __name__ == '__main__':
