@@ -108,7 +108,7 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_time)
             
-        ], style = {'width':'48%', 'float':'left','fontSize': 14}),
+        ], style = {'width':'48%', 'float':'left'}),
         
         html.Div([
             
@@ -116,14 +116,14 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_age)
             
-        ], style = {'width':'48%', 'float':'right'}),
+        ], style = {'width':'55%', 'float':'right'}),
         html.Div([
             
-            html.H3("Distribution by Transaction Distance from Card Owner"),
+            html.H3("Distribution by Distance of card owner address to Transaction (km)"),
             
             dcc.Graph(figure=fig_dist)
             
-        ], style = {'width':'48%', 'float':'left','fontSize': 10}),
+        ], style = {'width':'43%', 'float':'left'}),
         html.Div([
             
             html.H3("Distribution by Transaction Amount"),
