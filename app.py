@@ -116,6 +116,10 @@ app.layout = html.Div(
     [
         html.H1("Exploring Credit Card Fraud"),
         dcc.Markdown(children = markdown_text),
+        html.H4("% of fraudulant transactions within the category"),
+        
+            dcc.Graph(figure=fig_category),
+        
         html.Div([
             
             html.H2("Distribution by Transaction Time"),
@@ -144,11 +148,8 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_amt)
             
-        ], style = {'width':'48%', 'float':'right'}),
+        ], style = {'width':'48%', 'float':'right'})
         
-        html.H4("% of fraudulant transactions within the category"),
-        
-            dcc.Graph(figure=fig_category)
     ]
 )
 if __name__ == '__main__':
