@@ -108,7 +108,7 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_time)
             
-        ], style = {'width':'48%', 'float':'left'}),
+        ], style = {'width':'48%', 'float':'left','fontSize': 14}),
         
         html.Div([
             
@@ -123,7 +123,7 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_dist)
             
-        ], style = {'width':'48%', 'float':'left'}),
+        ], style = {'width':'48%', 'float':'left','fontSize': 10}),
         html.Div([
             
             html.H3("Distribution by Transaction Amount"),
