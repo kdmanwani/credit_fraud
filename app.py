@@ -88,6 +88,20 @@ fig_amt.update_layout(barmode='overlay')
 #fig_amt.update_xaxes(title_text='$ Amount of Transaction')
 fig_amt.show()
 
+#Table with fraud victim breakdown by category
+df_category = df.groupby(['category', 'is_fraud']).size()
+df_category = df_category.reset_index()
+df_category = df_category.rename({0:'count'}, axis=1)
+
+#add percentage given that different sample size
+category=df.groupby(['category']).size().reset_index().rename({0:'total_category'}, axis=1)
+df_category=df_category.merge(category,on='category')
+df_category['percentage']=(df_category['count']/df_category['total_category'])*(100)
+df_category['percentage']=df_category['percentage'].round(2)
+
+#plot bar chart by category for fraudulant transactions
+fig_category = px.bar(df_category[df_category["is_fraud"]==1], x='category', y='percentage')
+fig_category.show()
 
 
 markdown_text = ''' This dashboard has some visualizations for exploratory data analysis on Fraudulant credit card
@@ -130,7 +144,11 @@ app.layout = html.Div(
             
             dcc.Graph(figure=fig_amt)
             
-        ], style = {'width':'48%', 'float':'right'})
+        ], style = {'width':'48%', 'float':'right'}),
+        
+        html.H4("% of fraudulant transactions within the category"),
+        
+            dcc.Graph(figure=fig_category)
     ]
 )
 if __name__ == '__main__':
